@@ -9,6 +9,7 @@ import globals from 'rollup-plugin-node-globals';
 import builtins from 'rollup-plugin-node-builtins';
 import json from 'rollup-plugin-json';
 
+import nodePolyfills from 'rollup-plugin-node-polyfills';
 
 
 const production = !process.env.ROLLUP_WATCH;
@@ -96,6 +97,7 @@ export default {
 				builtins(),
         globals(),
         json(),
+				nodePolyfills(),
 	],
 	watch: {
 		clearScreen: false
