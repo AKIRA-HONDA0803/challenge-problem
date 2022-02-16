@@ -9,7 +9,11 @@ import globals from 'rollup-plugin-node-globals';
 import builtins from 'rollup-plugin-node-builtins';
 import json from 'rollup-plugin-json';
 
+
+
 const production = !process.env.ROLLUP_WATCH;
+
+const rollup = require('rollup');
 
 function serve() {
 	let server;
@@ -33,14 +37,26 @@ function serve() {
 }
 
 export default {
+	// external: [
+	// 	'buffer',
+	// 	'url'
+	// ],
 	input: 'src/main.js',
 	output: {
 		sourcemap: true,
 		format: 'iife',
 		name: 'app',
 		file: 'public/build/bundle.js'
+		// globals: {
+		// 	'buffer': 'buffer',
+		// 	'url': 'url'
+		// },
 	},
 	plugins: [
+	// 	new rollup.ProvidePlugin({
+	// 		Buffer: ['buffer', 'Buffer'],
+	// }),
+	
 		svelte({
 			compilerOptions: {
 				// enable run-time checks when not in production
@@ -58,7 +74,11 @@ export default {
 		// https://github.com/rollup/plugins/tree/master/packages/commonjs
 		resolve({
 			browser: true,
-			dedupe: ['svelte']
+			dedupe: ['svelte'],
+		// 	extensions: [ '.ts', '.js' ],
+		// 	fallback: {
+		// 		"buffer": require.resolve("buffer")
+		// }
 		}),
 		commonjs(),
 
@@ -73,7 +93,7 @@ export default {
 		// If we're building for production (npm run build
 		// instead of npm run dev), minify
 		production && terser(),
-builtins(),
+				builtins(),
         globals(),
         json(),
 	],

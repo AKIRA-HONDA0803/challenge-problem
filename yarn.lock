@@ -5880,6 +5880,11 @@
     "source-map" "~0.7.2"
     "source-map-support" "~0.5.19"
 
+"the-answer@^1.0.0":
+  "integrity" "sha1-bbxMnbRp1PQ3EgsJ5EcA/DIPFws="
+  "resolved" "https://registry.npmjs.org/the-answer/-/the-answer-1.0.0.tgz"
+  "version" "1.0.0"
+
 "throat@^5.0.0":
   "integrity" "sha512-fcwX4mndzpLQKBS1DVYhGAcYaYt7vsHNIvQV+WXMvnow5cgjPphq5CaayLaGsjRdSCKZFNGt7/GYAuXaNOiYCA=="
   "resolved" "https://registry.npmjs.org/throat/-/throat-5.0.0.tgz"
