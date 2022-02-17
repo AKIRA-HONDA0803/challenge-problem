@@ -9,6 +9,7 @@ import globals from 'rollup-plugin-node-globals';
 import builtins from 'rollup-plugin-node-builtins';
 import json from 'rollup-plugin-json';
 
+import { nodeResolve } from '@rollup/plugin-node-resolve';
 
 const production = !process.env.ROLLUP_WATCH;
 
@@ -16,6 +17,7 @@ const rollup = require('rollup');
 
 function serve() {
 	let server;
+
 
 	function toExit() {
 		if (server) server.kill(0);
@@ -45,6 +47,7 @@ export default {
 	},
 	plugins: [
 
+		[nodeResolve()],
 		svelte({
 			compilerOptions: {
 				// enable run-time checks when not in production
@@ -84,3 +87,5 @@ export default {
 	watch: {
 		clearScreen: false
 	}};
+
+	
