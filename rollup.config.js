@@ -43,7 +43,10 @@ export default {
 		sourcemap: true,
 		format: 'iife',
 		name: 'app',
-		file: 'public/build/bundle.js'
+		file: 'public/build/bundle.js',
+		globals: {
+			      'crypto': 'crypto'
+			    }
 	},
 	plugins: [
 
@@ -87,5 +90,3 @@ export default {
 	watch: {
 		clearScreen: false
 	}};
-
-	
