@@ -13,8 +13,6 @@ import { nodeResolve } from '@rollup/plugin-node-resolve';
 
 const production = !process.env.ROLLUP_WATCH;
 
-const rollup = require('rollup');
-
 function serve() {
 	let server;
 
